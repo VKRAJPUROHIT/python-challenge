@@ -1,0 +1,26 @@
+#Import OS module
+#This will allow to create file paths acroos operating systems
+import os
+#Import CSV file module
+import csv  
+#Specify file path   
+csvpath=os.path.join('Resources','budget_data.csv')
+#Open file in read mode 
+with open(csvpath) as csvfile:
+  #Pass the file object to reader() to get the reader object
+  csvreader=csv.reader(csvfile,delimiter=',')
+  print(csvreader)
+  #Read the header row first
+  csv_header=next(csvreader)
+  print(f"CSV Header:{csv_header}")
+  #Initialize total_months counter
+  total_months=0
+  #Iterate over each row in the csv using reader object 
+  for row in csvreader: 
+    #Increment the total_months counter by 1
+    total_months=total_months+1      
+    #Row variable is a list that represents a row in csv   
+    print(row) 
+  else:
+    print()
+    print(f"Total Months = {total_months}")    
